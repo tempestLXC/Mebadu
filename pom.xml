@@ -148,11 +148,13 @@
             <version>6.0.1</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.belerweb/qq-connect -->
         <dependency>
-            <groupId>com.lzone</groupId>
-            <artifactId>qq-login</artifactId>
-            <version>1.0</version>
+            <groupId>com.belerweb</groupId>
+            <artifactId>qq-connect</artifactId>
+            <version>1.0.2</version>
         </dependency>
+
 
     </dependencies>
     <build>
