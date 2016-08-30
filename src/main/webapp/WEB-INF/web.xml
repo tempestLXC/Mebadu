@@ -13,6 +13,17 @@
         </init-param>
     </filter>
 
+    <servlet>
+        <servlet-name>afterlogin</servlet-name>
+        <servlet-class>cn.tomoya.module.oauth.AfterLoginRedirectServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>afterlogin</servlet-name>
+        <!-- 业界标准 用.do后缀来表示 controler -->
+        <url-pattern>/afterlogin.do</url-pattern>
+    </servlet-mapping>
+
     <filter-mapping>
         <filter-name>jfinal</filter-name>
         <url-pattern>/*</url-pattern>
