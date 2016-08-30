@@ -46,6 +46,10 @@ public class CommonInterceptor implements Interceptor {
             controller.setAttr("login_channel", loginChannelMap);
             controller.setAttr("weibometa", PropKit.get("weibo.meta"));
         } else if(StrUtil.isBlank(loginChannel) || loginChannel.equals(Constants.LoginEnum.Github.name())) {
+//            loginChannelMap.put("loginChannelName", Constants.LoginEnum.Github.name());
+//            loginChannelMap.put("loginChannelUrl", "/oauth/githublogin");
+//            controller.setAttr("login_channel", loginChannelMap);
+
             loginChannelMap.put("loginChannelName", Constants.LoginEnum.Github.name());
             loginChannelMap.put("loginChannelUrl", "/oauth/githublogin");
             controller.setAttr("login_channel", loginChannelMap);

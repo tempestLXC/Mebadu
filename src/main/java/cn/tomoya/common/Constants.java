@@ -30,7 +30,8 @@ public class Constants {
     //第三方登录渠道
     public enum LoginEnum {
         Github,
-        Weibo
+        Weibo,
+        QQ
     }
 
 }

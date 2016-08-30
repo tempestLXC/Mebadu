@@ -33,8 +33,7 @@ public class IndexController extends BaseController {
     /**
      * 首页
      */
-    public void index() {
-        String tab = getPara("tab");
+    public void index() {String tab = getPara("tab");
         if (StrUtil.isBlank(tab)) {
             tab = "all";
         }
