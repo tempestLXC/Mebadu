@@ -31,22 +31,17 @@ import java.util.Date;
 public class QqOauthController extends BaseController {
 
 	public void qqOauthLogin() {
-
-		HttpServletResponse res = this.getResponse();
 		try {
-			res.sendRedirect(new Oauth().getAuthorizeURL(this.getRequest()));
+			this.redirect(new Oauth().getAuthorizeURL(this.getRequest()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return;
 	}
 
 	public void callBack() throws IOException, ServletException {
 
-		HttpServletResponse response = this.getResponse();
-		this.setCookie("tet", "sadfasdfasd", 10000, false);
-		response.setContentType("text/html; charset=utf-8");
-
-		PrintWriter out = response.getWriter();
+		this.setCookie("tet", String.valueOf(Math.random()), 10000, false);
 
 		HttpServletRequest request = this.getRequest();
 
@@ -78,22 +73,12 @@ public class QqOauthController extends BaseController {
 
 				UserInfo qzoneUserInfo = new UserInfo(accessToken, openID);
 				UserInfoBean userInfoBean = qzoneUserInfo.getUserInfo();
-				out.println("<br/>");
-				if (userInfoBean.getRet() == 0) {
-					out.println(userInfoBean.getNickname() + "<br/>");
-					out.println(userInfoBean.getGender() + "<br/>");
-					out.println("黄钻等级： " + userInfoBean.getLevel() + "<br/>");
-					out.println("会员 : " + userInfoBean.isVip() + "<br/>");
-					out.println("黄钻会员： " + userInfoBean.isYellowYearVip() + "<br/>");
-					out.println("<image src=" + userInfoBean.getAvatar().getAvatarURL30() + "/><br/>");
-					out.println("<image src=" + userInfoBean.getAvatar().getAvatarURL50() + "/><br/>");
-					out.println("<image src=" + userInfoBean.getAvatar().getAvatarURL100() + "/><br/>");
-				} else {
-					out.println("很抱歉，我们没能正确获取到您的信息，原因是： " + userInfoBean.getMsg());
+				if (userInfoBean == null || qzoneUserInfo == null) {
+					/**
+					 * 跳转错误页面
+					 */
+					return;
 				}
-				out.println(
-						"<p> end -----------------------------------利用获取到的accessToken,openid 去获取用户在Qzone的昵称等信息 ---------------------------- end </p>");
-
 				if (user == null) {
 					user = new User();
 					flag = false;
@@ -126,18 +111,20 @@ public class QqOauthController extends BaseController {
 				}
 				setCookie(Constants.USER_ACCESS_TOKEN,
 						StrUtil.getEncryptionToken(user.getStr("access_token")),
-						30 * 24 * 60 * 60, "/",
-						PropKit.get("cookie.domain"),
+						30 * 24 * 60 * 60, "/", PropKit.get("cookie.domain"),
 						true);
 				String callback = getPara("callback");
 				if (StrUtil.notBlank(callback)) {
 					callback = URLDecoder.decode(callback, "UTF-8");
 				}
 				redirect(StrUtil.notBlank(callback) ? callback : "/");
+				return;
 			}
 		} catch (QQConnectException e) {
 			e.printStackTrace();
 		}
+		redirect("/");
+		return;
 	}
 
 }
