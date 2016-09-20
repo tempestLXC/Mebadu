@@ -1,111 +1,99 @@
 <#include "../common/layout.ftl">
 <@html page_title="${topic.title}">
-<div class="row">
-    <div class="col-md-9">
-        <div class="panel panel-default">
-            <div class="panel-body topic-detail-header">
-                <div class="media">
-                    <div class="media-body">
-                        <h2 class="topic-detail-title">${topic.title!}</h2>
-                        <p class="gray">
-                            <#if topic.isTop(topic) == "true">
-                                <span class="label label-primary">置顶</span>
-                                <span>•</span>
-                            <#elseif topic.isGood(topic) == "true">
-                                <span class="label label-success">精华</span>
-                                <span>•</span>
-                            </#if>
-                            <span><a href="/user/${topic.author!}">${topic.author!}</a></span>
+<link href="/static/css/information_detial.css" rel="stylesheet" type="text/css" xmlns="http://www.w3.org/1999/html"/>
+<!--内容区域-->
+<div class="content">
+    <!--做不内容区域-->
+    <div class="content_detail_left">
+        <!--文章头部区域-->
+        <div class="title_area">
+            <div class="title_text">
+                <p class="title_name">${topic.title!}</p>
+                <p class="public_date">${topic.formatDate(topic.in_time)}</p>
+                <p class="article_copyright">版权：<span><a href="/?tab=${section.tab!}">${section.name!}</a>发布 如需商业用途，请与<a
+                        href="/?tab=${section.tab!}">${section.name!}</a>联系，谢谢</span> <a href="">举报</a></p>
+                </br>
+                <#if userinfo??>
+                    <p class="article_copyright">
+                    <#--<#if userinfo.id == authorinfo.id>-->
+                    <#--<span>•</span>-->
+                    <#--<span><a href="/t/append/${topic.id}">内容追加</a></span>-->
+                    <#--</#if>-->
+                        <@py.hasPermission name="topic:edit" id="${userinfo.id!}">
                             <span>•</span>
-                            <span>${topic.formatDate(topic.in_time)}</span>
+                            <span><a href="/t/edit?id=${topic.id}">编辑</a></span>
+                        </@py.hasPermission>
+                        <@py.hasPermission name="topic:delete" id="${userinfo.id!}">
                             <span>•</span>
-                            <span>${topic.view!1}次点击</span>
+                            <span><a
+                                    href="javascript:if(confirm('确定要删除吗？'))location.href='/t/delete?id=${topic.id}'">删除</a></span>
+                        </@py.hasPermission>
+                        <@py.hasPermission name="topic:top" id="${userinfo.id!}">
                             <span>•</span>
-                            <span>来自 <a href="/?tab=${section.tab!}">${section.name!}</a></span>
-                            <#if userinfo??>
-                                <#if userinfo.id == authorinfo.id>
-                                    <span>•</span>
-                                    <span><a href="/t/append/${topic.id}">内容追加</a></span>
-                                </#if>
-                                <@py.hasPermission name="topic:edit" id="${userinfo.id!}">
-                                    <span>•</span>
-                                    <span><a href="/t/edit?id=${topic.id}">编辑</a></span>
-                                </@py.hasPermission>
-                                <@py.hasPermission name="topic:delete" id="${userinfo.id!}">
-                                    <span>•</span>
-                                    <span><a href="javascript:if(confirm('确定要删除吗？'))location.href='/t/delete?id=${topic.id}'">删除</a></span>
-                                </@py.hasPermission>
-                                <@py.hasPermission name="topic:top" id="${userinfo.id!}">
-                                    <span>•</span>
-                                    <span><a href="javascript:if(confirm('确定要${topic._top!}吗？'))location.href='/t/top?id=${topic.id}'">${topic._top!}</a></span>
-                                </@py.hasPermission>
-                                <@py.hasPermission name="topic:good" id="${userinfo.id!}">
-                                    <span>•</span>
-                                    <span><a href="javascript:if(confirm('确定要${topic._good!}吗？'))location.href='/t/good?id=${topic.id}'">${topic._good!}</a></span>
-                                </@py.hasPermission>
-                            </#if>
-                        </p>
-                    </div>
-                    <div class="media-right">
-                        <img src="${topic.getAvatarByNickname(topic.author)}" alt="" class="avatar-lg"/>
-                    </div>
-                </div>
+                            <span><a
+                                    href="javascript:if(confirm('确定要${topic._top!}吗？'))location.href='/t/top?id=${topic.id}'">${topic._top!}</a></span>
+                        </@py.hasPermission>
+                        <@py.hasPermission name="topic:good" id="${userinfo.id!}">
+                            <span>•</span>
+                            <span><a
+                                    href="javascript:if(confirm('确定要${topic._good!}吗？'))location.href='/t/good?id=${topic.id}'">${topic._good!}</a></span>
+                        </@py.hasPermission>
+                    </p>
+                </#if>
             </div>
+            <div class="article_hot">
+                <p class="hot_name">人气</p>
+                <p class="hot_data"><span>${topic.view!1}</span> <sup>o</sup></p>
+            </div>
+        </div>
+        <!--文章文本区域-->
+        <div class="information_content_area">
             <#if topic.content?? && topic.content != "">
                 <div class="divide"></div>
                 <div class="panel-body topic-detail-content">
                 ${topic.markedNotAt(topic.content)}
                 </div>
             </#if>
-            <#list topicAppends as topicAppend>
-                <div class="divide"></div>
-                <div class="panel-body topic-append-content">
-                    <p class="gray">
-                        <span>第 ${topicAppend_index + 1} 条追加</span>
-                        <span>•</span>
-                        <span>${topicAppend.formatDate(topicAppend.in_time)}</span>
-                        <#if userinfo??>
-                            <@py.hasPermission name="topic:appendedit" id="${userinfo.id!}">
-                                <span>•</span>
-                                <a href="/t/appendedit?id=${topicAppend.id!}">编辑</a>
-                            </@py.hasPermission>
-                        </#if>
-                    </p>
-                ${topicAppend.markedNotAt(topicAppend.content)}
-                </div>
-            </#list>
-            <#if userinfo??>
-                <div class="panel-footer">
-                    <a href="javascript:window.open('http://service.weibo.com/share/share.php?url=${shareDomain!}/t/${topic.id!}?r=${userinfo.nickname!}&title=${topic.title!}', '_blank', 'width=550,height=370'); recordOutboundLink(this, 'Share', 'weibo.com');">分享微博</a>&nbsp;
-                    <#if collect??>
-                        <a href="/collect/delete?tid=${topic.id!}">取消收藏</a>
-                    <#else>
-                        <a href="/collect/add?tid=${topic.id!}">加入收藏</a>
-                    </#if>
-                    <span class="pull-right">${collectCount!0}个收藏</span>
-                </div>
-            </#if>
         </div>
-        <#if topic.reply_count == 0>
-            <div class="panel panel-default">
-                <div class="panel-body text-center">目前暂无回复</div>
+        <!--文章操作区域-->
+        <div class="article_oporate_area">
+        <#--<a href="">-->
+        <#--<div class="download_button">-->
+        <#--<span></span>-->
+        <#--下载附件-->
+        <#--</div>-->
+
+        <#--</a>-->
+            <div class="article_share_icon icon_friends pointer"></div>
+            <div class="article_share_icon icon_weibo pointer"></div>
+            <div class="article_share_icon icon_qq pointer"></div>
+            <div class="article_collection pointer">
+                <#if collect??>
+                    <a href="/collect/delete?tid=${topic.id!}">取消收藏</a>
+                <#else>
+                    <span></span><a href="/collect/add?tid=${topic.id!}">加入收藏</a>
+                </#if>
             </div>
-        <#else>
-            <div class="panel panel-default">
-                <div class="panel-heading">${topic.reply_count!0} 条回复</div>
-                <div class="panel-body paginate-bot">
-                    <#include "../components/replies.ftl"/>
-                    <@replies replies=page.getList()/>
-                    <#include "../components/paginate.ftl"/>
-                    <@paginate currentPage=page.getPageNumber() totalPage=page.getTotalPage() actionUrl="/t/${topic.id}"/>
-                </div>
-            </div>
-        </#if>
+            <div class="support_article pointer">480</div>
+
+
+        </div>
+        <!--作者一览区-->
+        <div class="author_line">
+            <a href="/user/${authorinfo.nickname!}">
+                <img src="${authorinfo.avatar!}" title="${authorinfo.nickname!}" class="author_header_image"/>
+            </a>
+            <span class="author_line_name"><a href="/user/${authorinfo.nickname!}">${authorinfo.nickname!}</a></span>
+            <div class="focus_author pointer"></div>
+            <a href="" class="more_button">查看完整资料></a>
+        </div>
+
+
         <#if userinfo??>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     添加一条新回复
-                    <a href="javascript:;" id="goTop" class="pull-right">回到顶部</a>
+                    <#--<a href="javascript:;" id="goTop" class="pull-right">回到顶部</a>-->
                 </div>
                 <div class="panel-body">
                     <form action="/r/save" method="post" id="replyForm">
@@ -121,29 +109,53 @@
                 </div>
             </div>
         </#if>
+        <!--评论展示列表区域-->
+        <div class="comment_list_area">
+            <p class="comment_list_title">评论（<span class="comment_num">${topic.reply_count!0}</span>）</p>
+            <p class="list_title_line1"></p>
+            <p class="list_title_line2"></p>
+            <div class="clear"></div>
+            <div class="comment_list">
+                <#include "../components/replies.ftl"/>
+                <@replies replies=page.getList()/>
+
+            </div>
+
+        </div>
     </div>
-    <div class="col-md-3 hidden-sm hidden-xs">
+    <!--右部内容区域-->
+    <div class="content_detail_right">
         <#include "../components/authorinfo.ftl"/>
         <@info/>
         <#include "../components/othertopics.ftl"/>
         <@othertopics/>
     </div>
 </div>
+
+
+<!--分页 -->
+<div class="pages">
+    <#include "../components/paginate.ftl"/>
+    <@paginate currentPage=page.getPageNumber() totalPage=page.getTotalPage() actionUrl="/t/${topic.id}"/>
+</div>
+<!--分页 -->
+
+
+<!--广告 -->
+<div class="ad wrap"><img src="/static/image/add/07.jpg"/></div>
+<!--广告 -->
+
+</@html>
 <link rel="stylesheet" href="/static/css/jquery.atwho.min.css"/>
+<link rel="stylesheet" href="/static/libs/editor/editor.css"/>
 <script type="text/javascript" src="/static/js/jquery.atwho.min.js"></script>
 <script type="text/javascript" src="/static/js/lodash.min.js"></script>
-<link rel="stylesheet" href="/static/libs/editor/editor.css"/>
-<style>
-.CodeMirror {
-    height: 150px;
-}
-</style>
 <script type="text/javascript" src="/static/js/highlight.min.js"></script>
 <script type="text/javascript" src="/static/libs/webuploader/webuploader.withoutimage.js"></script>
 <script type="text/javascript" src="/static/libs/markdownit.js"></script>
 <script type="text/javascript" src="/static/libs/editor/editor.js"></script>
 <script type="text/javascript" src="/static/libs/editor/ext.js"></script>
-<script type="text/javascript">
+<script>
 
     $('pre code').each(function(i, block) {
         hljs.highlightBlock(block);
@@ -170,22 +182,42 @@
     var codeMirrorNewlineAndIndent = CodeMirror.commands.newlineAndIndent;
     var data = [];
     <#list page.getList() as reply>
-        data.push('${reply.author}');
+    data.push('${reply.author}');
     </#list>
     data = _.unique(data);
     $input.atwho({
         at: "@",
         data:data
     }).on('shown.atwho', function () {
-        CodeMirror.commands.goLineUp = _.noop;
-        CodeMirror.commands.goLineDown = _.noop;
-        CodeMirror.commands.newlineAndIndent = _.noop;
-    })
-    .on('hidden.atwho', function () {
-        CodeMirror.commands.goLineUp = codeMirrorGoLineUp;
-        CodeMirror.commands.goLineDown = codeMirrorGoLineDown;
-        CodeMirror.commands.newlineAndIndent = codeMirrorNewlineAndIndent;
-    });
+                CodeMirror.commands.goLineUp = _.noop;
+                CodeMirror.commands.goLineDown = _.noop;
+                CodeMirror.commands.newlineAndIndent = _.noop;
+            })
+            .on('hidden.atwho', function () {
+                CodeMirror.commands.goLineUp = codeMirrorGoLineUp;
+                CodeMirror.commands.goLineDown = codeMirrorGoLineDown;
+                CodeMirror.commands.newlineAndIndent = codeMirrorNewlineAndIndent;
+            });
     // END at.js 配置
+
+    function replySubmit() {
+        var errors = 0;
+        var em = $("#error_message");
+        var content = editor.value();
+        if(content.length == 0) {
+            errors++;
+            em.html("回复内容不能为空");
+        }
+        if(errors == 0) {
+            var form = $("#replyForm");
+            form.submit();
+        }
+    }
+
+    $(document).ready(function () {
+        $(".shuru").click(function () {
+            $(".search_chose").toggle(200);
+        });
+    });
 </script>
-</@html>
+<script src="/static/js/information_detail.js"></script>

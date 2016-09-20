@@ -45,7 +45,7 @@ public class User extends BaseModel<User> {
                     "select * from pybbs_user where access_token = ? and expire_time > ?",
                     accessToken,
                     new Date());
-            cache.set(CacheEnum.useraccesstoken.name() + accessToken, user);
+            cache.setex(CacheEnum.useraccesstoken.name() + accessToken, 60 * 30, user);
         }
         return user;
     }
@@ -130,5 +130,4 @@ public class User extends BaseModel<User> {
                 limit
         );
     }
-
 }
