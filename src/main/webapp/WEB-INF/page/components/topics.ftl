@@ -1,15 +1,20 @@
-<#macro topics>
+<#macro topics page>
 <!--列表 -->
 <div class="index_list">
     <ul>
         <#list page.getList() as topic>
-            <!--每个但愿模块start-->
+            <!--每个单元模块start-->
             <li>
                 <a href="/t/${topic.id!}">
                     <span class="index_pic"><img src="${topic.cover_uri!}"/></span>
                 </a>
 				  <span class="index_title">
-				    <a href="/t/${topic.id!}">${topic.title!}</a>
+				    <a href="/t/${topic.id!}">
+                        <#if topic.title?length lt 13 >
+                        ${topic.title}
+                        <#else>
+                        ${topic.title[0..12]}...
+                        </#if></a>
 				  </span>
 
                 <div class="index_type">
@@ -24,7 +29,7 @@
 					<em class="time">${topic.formatDate(topic.in_time)}</em>
 				  </span>
             </li>
-            <!--每个但愿模块end-->
+            <!--每个单元模块end-->
         </#list>
     </ul>
 </div>

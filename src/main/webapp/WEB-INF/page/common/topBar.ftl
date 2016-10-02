@@ -44,7 +44,7 @@
             <#if userinfo??>
                 <!--上传 -->
                 <div class="upload">
-                    <a href="#"></a>
+                    <a href="/t/create"></a>
                 </div>
                 <!--上传 -->
 
@@ -60,11 +60,11 @@
                     <span class="user_pic"><a href="/user/${userinfo.nickname!}"><img
                             src="${userinfo.avatar!}"/></a></span>
                     <dl>
-                        <dd><i class="user01"></i><a href="#">我关注的</a></dd>
-                        <dd><i class="user02"></i><a href="#">我上传的</a></dd>
-                        <dd><i class="user03"></i><a href="#">我推荐的</a></dd>
-                        <dd><i class="user04"></i><a href="#">我评论的</a></dd>
-                        <dd><i class="user05"></i><a href="#">帐号设置</a></dd>
+                        <#--<dd><i class="user01"></i><a href="#">我关注的</a></dd>-->
+                        <#--<dd><i class="user02"></i><a href="#">我上传的</a></dd>-->
+                        <#--<dd><i class="user03"></i><a href="#">我推荐的</a></dd>-->
+                        <#--<dd><i class="user04"></i><a href="#">我评论的</a></dd>-->
+                        <#--<dd><i class="user05"></i><a href="#">帐号设置</a></dd>-->
                         <dd><i class="user06"></i><a href="/logout">退出帐号</a></dd>
                     </dl>
                 </div>

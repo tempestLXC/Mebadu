@@ -44,7 +44,7 @@
     <ul class="nav_list">
         <li>作品</li>
         <li class="nav_active">收藏</li>
-        <li>推荐</li>
+        <#--<li>推荐</li>-->
     </ul>
 </div>
 
@@ -70,190 +70,47 @@
             <!--列表 -->
             <div class="index_list">
                 <ul>
+            <#list topicPage.getList() as topic>
                     <!--单元模块start-->
                     <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
+                        <a href="/t/${topic.id!}">
+                            <span class="index_pic"><img src="${topic.cover_uri!}"/></span>
                         </a>
 				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
+				    <a href="/t/${topic.id!}">
+                        <#if topic.title?length lt 13 >
+                        ${topic.title}
+                        <#else>
+                        ${topic.title[0..12]}...
+                        </#if></a>
 				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <!--单元模块end-->
-                    <!--单元模块start-->
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <!--单元模块end-->
-                    <!--单元模块start-->
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <!--单元模块end-->
-                    <!--单元模块start-->
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <!--单元模块end-->
-                    <!--单元模块start-->
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <!--单元模块end-->
-                    <!--单元模块start-->
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <!--单元模块end-->
-                    <!--单元模块start-->
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <!--单元模块end-->
-                    <!--单元模块start-->
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <!--单元模块end-->
 
+                        <div class="index_type">
+                            <div class="production_mark">好文转载</div>
+                            <span class="production_type">插画</span>
+                        </div>
+				  <span class="index_data">
+				    <i>${topic.view!0}</i> 人气 / <i>${topic.reply_count!0}</i> 评论 / <i>${topic.recommend_count!0}</i>推荐
+				  </span>
+                        <div class="edit_area">
+                            <span class="edit_icon"></span>
+                            <span><a href="/t/edit?id=${topic.id}">编辑</a></span>
+                            <span class="del_button"></span>
+                        </div>
+                    </li>
+                    <!--单元模块end-->
+            </#list>
 
                 </ul>
             </div>
             <!--列表 -->
-
         </div>
+        <#--<div class="pages">-->
+            <#--<#include "../components/paginate.ftl"/>-->
+	        <#--<@paginate currentPage=topicPage.getPageNumber() totalPage=topicPage.getTotalPage() actionUrl="" />-->
+        <#--</div>-->
     </div>
+
     <div class="production_list production_list_active">
         <!--作品分类区域-->
 
@@ -266,203 +123,120 @@
             <!--列表 -->
             <div class="index_list">
                 <ul>
+                <#list collectPage.getList() as topic>
                     <!--单元模块start-->
                     <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
+                        <a href="/t/${topic.id!}">
+                            <span class="index_pic"><img src="${topic.cover_uri!}"/></span>
                         </a>
 				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
+				    <a href="/t/${topic.id!}">
+                        <#if topic.title?length lt 13 >
+                        ${topic.title}
+                        <#else>
+                        ${topic.title[0..12]}...
+                        </#if></a>
 				  </span>
+
                         <div class="index_type">
                             <div class="production_mark">好文转载</div>
                             <span class="production_type">插画</span>
                         </div>
 				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
+				    <i>${topic.view!0}</i> 人气 / <i>${topic.reply_count!0}</i> 评论 / <i>${topic.recommend_count!0}</i>推荐
 				  </span>
                         <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
+                            <#--<span class="edit_icon"></span>-->
+                            <#--<span><a href="/t/edit?id=${topic.id}">编辑</a></span>-->
+                            <#--<span class="del_button"></span>-->
                         </div>
                     </li>
                     <!--单元模块end-->
-                    <!--单元模块start-->
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <!--单元模块end-->
-                    <!--单元模块start-->
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <!--单元模块end-->
-                    <!--单元模块start-->
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <!--单元模块end-->
-                    <!--单元模块start-->
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <!--单元模块end-->
+                </#list>
                 </ul>
             </div>
             <!--列表 -->
 
         </div>
     </div>
-    <div class="production_list">
-        <div class="wrap">
-            <div class="production_category">
-                <div class="production_category_button production_category_active">全部(<span>300</span>)</div>
-                <div class="production_category_button prdction">作品(<span>20</span>)</div>
-                <div class="production_category_button">文章(<span>0</span>)</div>
-            </div>
-            <!--列表 -->
-            <div class="index_list">
-                <ul>
+
+    <#--<div class="production_list">-->
+        <#--<div class="wrap">-->
+            <#--<div class="production_category">-->
+                <#--<div class="production_category_button production_category_active">全部(<span>300</span>)</div>-->
+                <#--<div class="production_category_button prdction">作品(<span>20</span>)</div>-->
+                <#--<div class="production_category_button">文章(<span>0</span>)</div>-->
+            <#--</div>-->
+            <#--<!--列表 &ndash;&gt;-->
+            <#--<div class="index_list">-->
+                <#--<ul>-->
 
 
 
-                    <!--单元模块start-->
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <!--单元模块end-->
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="personal_production.html">
-                            <span class="index_pic"><img src="/static/image/add/06.jpg" /></span>
-                        </a>
-				  <span class="index_title">
-				    <a href="#">仓惶之狗/最近一有时间就画些...</a>
-				  </span>
-                        <div class="index_type">
-                            <div class="production_mark">好文转载</div>
-                            <span class="production_type">插画</span>
-                        </div>
-				  <span class="index_data">
-				    <i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐
-				  </span>
-                        <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span>编辑</span>
-                            <span class="del_button"></span>
-                        </div>
-                    </li>
-
-
-
-
-                </ul>
-            </div>
+                    <#--<!--单元模块start&ndash;&gt;-->
+                    <#--<li>-->
+                        <#--<a href="personal_production.html">-->
+                            <#--<span class="index_pic"><img src="/static/image/add/06.jpg" /></span>-->
+                        <#--</a>-->
+				  <#--<span class="index_title">-->
+				    <#--<a href="#">仓惶之狗/最近一有时间就画些...</a>-->
+				  <#--</span>-->
+                        <#--<div class="index_type">-->
+                            <#--<div class="production_mark">好文转载</div>-->
+                            <#--<span class="production_type">插画</span>-->
+                        <#--</div>-->
+				  <#--<span class="index_data">-->
+				    <#--<i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐-->
+				  <#--</span>-->
+                        <#--<div class="edit_area">-->
+                            <#--<span class="edit_icon"></span>-->
+                            <#--<span>编辑</span>-->
+                            <#--<span class="del_button"></span>-->
+                        <#--</div>-->
+                    <#--</li>-->
+                    <#--<!--单元模块end&ndash;&gt;-->
+                    <#--<li>-->
+                        <#--<a href="personal_production.html">-->
+                            <#--<span class="index_pic"><img src="/static/image/add/06.jpg" /></span>-->
+                        <#--</a>-->
+				  <#--<span class="index_title">-->
+				    <#--<a href="#">仓惶之狗/最近一有时间就画些...</a>-->
+				  <#--</span>-->
+                        <#--<div class="index_type">-->
+                            <#--<div class="production_mark">好文转载</div>-->
+                            <#--<span class="production_type">插画</span>-->
+                        <#--</div>-->
+				  <#--<span class="index_data">-->
+				    <#--<i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐-->
+				  <#--</span>-->
+                        <#--<div class="edit_area">-->
+                            <#--<span class="edit_icon"></span>-->
+                            <#--<span>编辑</span>-->
+                            <#--<span class="del_button"></span>-->
+                        <#--</div>-->
+                    <#--</li>-->
+                    <#--<li>-->
+                        <#--<a href="personal_production.html">-->
+                            <#--<span class="index_pic"><img src="/static/image/add/06.jpg" /></span>-->
+                        <#--</a>-->
+				  <#--<span class="index_title">-->
+				    <#--<a href="#">仓惶之狗/最近一有时间就画些...</a>-->
+				  <#--</span>-->
+                        <#--<div class="index_type">-->
+                            <#--<div class="production_mark">好文转载</div>-->
+                            <#--<span class="production_type">插画</span>-->
+                        <#--</div>-->
+				  <#--<span class="index_data">-->
+				    <#--<i>2390</i> 人气 / <i>4</i> 评论 / <i>10</i>推荐-->
+				  <#--</span>-->
+                        <#--<div class="edit_area">-->
+                            <#--<span class="edit_icon"></span>-->
+                            <#--<span>编辑</span>-->
+                            <#--<span class="del_button"></span>-->
+                        <#--</div>-->
+                    <#--</li>-->
+                <#--</ul>-->
+            <#--</div>-->
             <!--列表 -->
 
         </div>

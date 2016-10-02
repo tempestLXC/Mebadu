@@ -38,13 +38,21 @@ public class UserController extends BaseController {
         } else {
             User currentUser = User.me.findByNickname(URLDecoder.decode(nickname, "utf-8"));
             if (currentUser != null) {
+
                 Long collectCount = Collect.me.countByUid(currentUser.getInt("id"));
                 currentUser.put("collectCount", collectCount);
 
-                Page<Topic> topicPage = Topic.me.pageByAuthor(1, 7, nickname);
-                Page<Reply> replyPage = Reply.me.pageByAuthor(1, 7, nickname);
+                Page<Topic> topicPage = Topic.me.pageByAuthor(1, 100, nickname);
                 setAttr("topicPage", topicPage);
+
+                Page<Collect> collectPage = Collect.me
+                        .findByUid(getParaToInt("p", 1), 100, currentUser.getInt("id"));
+                setAttr("collectPage", collectPage);
+
+
+                Page<Reply> replyPage = Reply.me.pageByAuthor(1, 7, nickname);
                 setAttr("replyPage", replyPage);
+
                 setAttr("pageTitle", currentUser.getStr("nickname") + " 个人主页");
 
                 UserExtend userExtend = UserExtend.me.findByserId(currentUser.get("id"));

@@ -22,6 +22,7 @@ import com.jfinal.plugin.activerecord.tx.Tx;
 import com.jfinal.plugin.redis.Cache;
 import com.jfinal.plugin.redis.Redis;
 import org.jsoup.Jsoup;
+import org.jsoup.helper.StringUtil;
 import org.jsoup.safety.Whitelist;
 
 import java.io.UnsupportedEncodingException;
@@ -36,6 +37,11 @@ import java.util.List;
  */
 @ControllerBind(controllerKey = "/t", viewPath = "WEB-INF/page")
 public class TopicController extends BaseController {
+
+	/**
+     * 七牛云存储封面尾缀
+     */
+    private String cover_suffix = "?imageView2/1/w/262/h/202/interlace/0/q/100";
 
     /**
      * 话题详情
@@ -114,12 +120,22 @@ public class TopicController extends BaseController {
                 renderText(Constants.OP_ERROR_MESSAGE);
             } else {
                 String tab = getPara("tab");
+                String cover_uri = getPara("cover_uri");
+                if(!StringUtil.isBlank(cover_uri)){
+
+                    cover_uri = cover_uri + cover_suffix;
+                }
+                String subsection_id = getPara("subsection_id");
+                String original = getPara("original");
                 User user = getUser();
                 Topic topic = new Topic();
                 topic.set("title", Jsoup.clean(title, Whitelist.basic()))
                         .set("content", content)
                         .set("tab", tab)
                         .set("in_time", now)
+                        .set("cover_uri", cover_uri)
+                        .set("subsection_id", subsection_id)
+                        .set("original", original)
                         .set("last_reply_time", now)
                         .set("view", 0)
                         .set("author", user.get("nickname"))

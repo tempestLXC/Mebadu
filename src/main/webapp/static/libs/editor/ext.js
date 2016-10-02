@@ -146,7 +146,8 @@
         });
 
         this.uploader.on('beforeFileQueued', function (file) {
-            if (self.file !== false || !self.editor) {
+            debugger;
+            if (self.file !== false || (!self.editor && self.token != "t_cover")) {
                 return false;
             }
             self.showFile(file);
@@ -158,10 +159,19 @@
         });
 
         this.uploader.on('uploadSuccess', function (file, res) {
+
             if (res.code == 200) {
                 $(".close").click();
                 $("#error_message").html("");
                 var image = '![' + file.name + '](' + res.detail[0] + ')';
+                //追加内容
+                if(self.token == 't_cover'){
+                    self.token = "";
+
+                    $("#preview").attr("src", res.detail[0]);
+                    $("#cover_uri").attr("value",res.detail[0])
+                    return;
+                }
                 self.editor.push(self.editor.value().length == 0 ? image : '\n' + image);
             } else {
                 self.removeFile();
@@ -231,12 +241,22 @@
             .attr("aria-valuenow", percentage);
     };
 
-    ToolImage.prototype.bind = function (editor) {
-        this.editor = editor;
+    ToolImage.prototype.bind = function (editor,token) {
+
+        if(token == "t_cover"){
+            this.token = token;
+        }else{
+            this.editor = editor;
+        }
+
         this.$win.modal('show');
     };
 
-    var toolImage = new ToolImage();
+    ToolImage.prototype.show = function(){
+        this.$win.modal('show');
+    }
+
+    toolImage = new ToolImage();
     var toolLink = new ToolLink();
 
     replaceTool('image', function (editor) {

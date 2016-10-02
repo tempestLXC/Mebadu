@@ -44,7 +44,7 @@ public class IndexController extends BaseController {
 //		} else {
 //			setAttr("sectionName", "版块");
 //		}
-		Page page = Topic.me.page(getParaToInt("p", 1), PropKit.getInt("pageSize", 20), "good");
+		Page page = Topic.me.page(getParaToInt("p", 1), 8, "good");
 		setAttr("bar", "index");
 //		setAttr("sections", Section.me.findByShowStatus(true));
 		setAttr("page", page);

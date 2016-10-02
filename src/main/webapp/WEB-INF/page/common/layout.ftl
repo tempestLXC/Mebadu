@@ -4,7 +4,7 @@
 <head>
     <#include "./header.ftl">
     <@header page_tab=page_tab/>
-    <title>首页</title>
+    <title>${pageTitle!}</title>
     <script>
         $(document).ready(function(){
             $(".shuru").click(function(){

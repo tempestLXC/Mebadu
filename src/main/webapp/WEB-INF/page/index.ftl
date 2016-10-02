@@ -52,7 +52,7 @@ $(function(){
 
       <!--列表 -->
 	  <#include "./components/topics.ftl"/>
-	  <@topics/>
+	  <@topics page=page/>
       <!--列表 -->
 
   </div>

@@ -1,9 +1,9 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 192.168.199.124
+Source Server         : 192.168.56.101
 Source Server Version : 50505
-Source Host           : 192.168.199.124:3306
+Source Host           : 192.168.56.101:3306
 Source Database       : badu_user
 
 Target Server Type    : MYSQL

@@ -279,9 +279,37 @@ span.del_button{
 	text-align: center;
 	line-height: 36px;
 }
-
-
-
+.add_production_box{
+	width: 260px;
+	height: 305px;
+	border-bottom: 1px solid #eee;
+	display: none;
+}
+.add_production_button{
+	width: 100%;
+	height: 200px;
+}
+.add_production_box p{
+	font-size: 16px;
+	color:#333;
+	margin-top:15px;
+}
+.empty_collection_box{
+	display: none;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+.empty_collection{
+	width: 198px;
+	margin:40px auto 20px;
+}
+.empty_collection_box{
+	width: 100%;
+	text-align: center;
+	font-size: 16px;
+	color:#999;
+}
 
 
 
