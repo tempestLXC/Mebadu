@@ -9,8 +9,8 @@
         <div class="nav">
             <ul>
                 <li <#if bar?? && bar == "index" >class="now"</#if>><a href="/">首页</a></li>
-                <li <#if bar?? && bar == "article" >class="now"</#if>><a href="index_article.html">文章</a></li>
-                <li <#if bar?? && bar == "product" >class="now"</#if>><a href="index_production.html">作品</a></li>
+                <li <#if bar?? && bar == "article" >class="now"</#if>><a href="/t/topicList?type=2&view=list">文章</a></li>
+                <li <#if bar?? && bar == "product" >class="now"</#if>><a href="/t/topicList?type=1&view=lattice">作品</a></li>
                 <li <#if bar?? && bar == "stylist" >class="now"</#if>><a href="#">设计师</a></li>
                 <li <#if bar?? && bar == "material" >class="now"</#if>><a href="#">素材</a></li>
             </ul>

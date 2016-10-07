@@ -93,9 +93,11 @@
 				    <i>${topic.view!0}</i> 人气 / <i>${topic.reply_count!0}</i> 评论 / <i>${topic.recommend_count!0}</i>推荐
 				  </span>
                         <div class="edit_area">
-                            <span class="edit_icon"></span>
-                            <span><a href="/t/edit?id=${topic.id}">编辑</a></span>
-                            <span class="del_button"></span>
+                        <#if userinfo?? && userinfo.nickname == topic.author>
+                                <span class="edit_icon"></span>
+                                <span><a href="/t/edit?id=${topic.id}">编辑</a></span>
+                                <span class="del_button"></span>
+                        </#if>
                         </div>
                     </li>
                     <!--单元模块end-->

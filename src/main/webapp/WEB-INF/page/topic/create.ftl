@@ -72,9 +72,11 @@
         });
     });
 </script>
+<link rel="stylesheet" href="/static/css/bootstrap.css"/>
 <link rel="stylesheet" href="/static/libs/editor/editor.css"/>
 <script type="text/javascript" src="/static/libs/webuploader/webuploader.withoutimage.js"></script>
 <script type="text/javascript" src="/static/libs/markdownit.js"></script>
 <script type="text/javascript" src="/static/libs/editor/editor.js"></script>
 <script type="text/javascript" src="/static/libs/editor/ext.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 <script src="/static/js/upload_file.js"></script>

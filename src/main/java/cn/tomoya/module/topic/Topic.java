@@ -7,6 +7,7 @@ import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.redis.Cache;
 import com.jfinal.plugin.redis.Redis;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -168,6 +169,39 @@ public class Topic extends BaseModel<Topic> {
             topic.put("topicAppends", topicAppends);
         }
         return topics;
+    }
+
+    /**
+     * 按照类型查询 默认时间倒序
+     *  完整SQL select *  from pybbs_topic where isdelete = ? and type = ?  and isgood = ?  and tab = ? order by create_time desc
+     * @return
+     */
+    public Page<Topic> findByType(Integer pageNumber, Integer pageSize, Integer type, String tab, Boolean isGood) {
+
+        StringBuilder sql = new StringBuilder(" from pybbs_topic where isdelete = ?");
+
+        List<Object> parms = new ArrayList<Object>();
+
+        parms.add(false);
+
+        if (type != null) {
+            sql.append(" and type = ? ");
+            parms.add(type);
+        }
+
+        if (isGood!= null) {
+            sql.append(" and isgood = ? ");
+            parms.add(isGood);
+        }
+
+        if (tab != null && !tab.equals("all")) {
+            sql.append(" and tab = ? ");
+            parms.add(tab);
+        }
+
+        sql.append(" order by in_time desc");
+
+        return super.paginate(pageNumber, pageSize, "select *", sql.toString(), parms.toArray());
     }
 
     /**

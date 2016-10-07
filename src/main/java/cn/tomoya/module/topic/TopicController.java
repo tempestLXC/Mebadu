@@ -99,6 +99,46 @@ public class TopicController extends BaseController {
         }
     }
 
+	/**
+     * 根据条件查询topic 列表
+     * @throws UnsupportedEncodingException
+     */
+    public void topicList() throws UnsupportedEncodingException {
+
+        Integer type = this.getParaToInt("type", 2);
+
+        String  tab = this.getPara("tab");
+        Boolean isGood = this.getParaToBoolean("isGood", null);
+
+        Page page = Topic.me.findByType(getParaToInt("p", 1), 20, type, tab,isGood);
+
+        this.setAttr("page", page);
+
+        this.setAttr("bar", type == 1 ? "product" : "article");
+
+
+
+        setAttr("sections", Section.me.findByShowStatus(true));
+
+        String  view = this.getPara("view");
+        if (view == null || view.equals("list")) {
+
+            Page recomList = Topic.me.page(getParaToInt("p", 1), 4, "good");
+
+            this.setAttr("recomList", recomList);
+
+            Page users = User.me.page(1, 8);
+
+            this.setAttr("users", users);
+
+            render("topic/topicList.ftl");
+        }
+
+        if (view.equals("lattice")) {
+            render("topic/topicLattice.ftl");
+        }
+    }
+
     /**
      * 创建话题
      */
@@ -115,7 +155,11 @@ public class TopicController extends BaseController {
         } else if (method.equals("POST")) {
             Date now = new Date();
             String title = getPara("title");
+            String sub_title = getPara("sub_title");
             String content = getPara("content");
+
+            String type = getPara("type");
+
             if (StrUtil.isBlank(Jsoup.clean(title, Whitelist.basic()))) {
                 renderText(Constants.OP_ERROR_MESSAGE);
             } else {
@@ -132,9 +176,11 @@ public class TopicController extends BaseController {
                 topic.set("title", Jsoup.clean(title, Whitelist.basic()))
                         .set("content", content)
                         .set("tab", tab)
+                        .set("sub_title", sub_title)
                         .set("in_time", now)
                         .set("cover_uri", cover_uri)
-                        .set("subsection_id", subsection_id)
+                        .set("cover_uri", cover_uri)
+                        .set("type", type)
                         .set("original", original)
                         .set("last_reply_time", now)
                         .set("view", 0)
@@ -175,15 +221,33 @@ public class TopicController extends BaseController {
         if (method.equals("GET")) {
             setAttr("sections", Section.me.findByShowStatus(true));
             setAttr("topic", topic);
+            setAttr("sections", Section.me.findByShowStatus(true));
+            setAttr("subsections", Subsection.me.findByShowStatusByType(2, true));
             render("topic/edit.ftl");
         } else if (method.equals("POST")) {
             String tab = getPara("tab");
+            String subsection_id = getPara("subsection_id");
+            String original = getPara("original");
             String title = getPara("title");
+            String sub_title = getPara("sub_title");
             String content = getPara("content");
-            topic.set("tab", tab)
-                    .set("title", Jsoup.clean(title, Whitelist.basic()))
+            String type = getPara("type");
+
+            String cover_uri = getPara("cover_uri");
+            if(!StringUtil.isBlank(cover_uri)){
+                topic.set("cover_uri", cover_uri + cover_suffix);
+            }
+
+            topic.set("title", Jsoup.clean(title, Whitelist.basic()))
                     .set("content", content)
+                    .set("tab", tab)
+                    .set("sub_title", sub_title)
+                    .set("subsection_id", subsection_id)
+                    .set("original", original)
+                    .set("last_reply_time", new Date())
+                    .set("type", type)
                     .update();
+
             //索引话题
             if (PropKit.getBoolean("solr.status")) {
                 SolrUtil solrUtil = new SolrUtil();
@@ -334,4 +398,5 @@ public class TopicController extends BaseController {
         clearCache(CacheEnum.topic.name() + id);
         redirect("/t/" + id);
     }
+
 }

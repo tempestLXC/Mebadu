@@ -6,9 +6,9 @@
     <#local endPage = currentPage + 2>
     <#if (endPage > totalPage)><#local endPage = totalPage></#if>
     <#if totalPage &gt; 1 && showdivide == "yes">
-    <div class="divide mar-top-5"></div>
+    <#--<div class="divide mar-top-5"></div>-->
     </#if>
-<ul class="pagination pagination-sm <#if totalPage == 1>hidden-xs hidden-sm hidden-md hidden-lg</#if>">
+<#--<ul class="pagination pagination-sm <#if totalPage == 1>hidden-xs hidden-sm hidden-md hidden-lg</#if>">-->
     <#if (currentPage <= 3)>
         <#local startPage = 1>
     </#if>
@@ -17,25 +17,31 @@
     </#if>
 
     <#if (currentPage == 1)>
-        <!--<li>上页</li>-->
+    <a class="pr">
+        <img src="/static/image/left_jt.png" />
+    </a>
     <#else>
-        <li><a href="${actionUrl}?p=1${urlParas!}">&lt;&lt;</a></li>
-        <li><a href="${actionUrl}?p=#{currentPage - 1}${urlParas!}">&lt;</a></li>
+    <a href="${actionUrl}?p=#{currentPage - 1}${urlParas!}" class="pr">
+        <img src="/static/image/left_jt.png" />
+    </a>
     </#if>
 
     <#list startPage..endPage as i>
         <#if currentPage == i>
-            <li class="active"><a class="disabled">#{i}</a></li>
+            <a class="now">#{i}</a>
         <#else>
-            <li><a href="${actionUrl}?p=#{i}${urlParas!}">#{i}</a></li>
+            <a href="${actionUrl}?p=#{i}${urlParas!}">#{i}</a>
         </#if>
     </#list>
 
     <#if (currentPage == totalPage)>
-        <!--<li>下页</li>-->
+    <a class="pr">
+        <img src="/static/image/right_jt.png" />
+    </a>
     <#else>
-        <li><a href="${actionUrl}?p=#{currentPage + 1}${urlParas!}">&gt;</a></li>
-        <li><a href="${actionUrl}?p=#{totalPage}${urlParas!}">&gt;&gt;</a></li>
+    <a href="${actionUrl}?p=#{currentPage + 1}${urlParas!}" class="pr">
+        <img src="/static/image/right_jt.png" />
+    </a>
     </#if>
-</ul>
+<#--</ul>-->
 </#macro>

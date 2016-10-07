@@ -4,12 +4,6 @@
 <link rel="stylesheet" href="/static/css/comm.css"/>
 <link rel="stylesheet" href="/static/css/header_comm.css"/>
 
-<#--<link rel="stylesheet" href="/static/css/github.css">-->
-<#--<link rel="stylesheet" href="/static/css/pybbs.css">-->
-<link rel="stylesheet" href="/static/css/bootstrap.css"/>
-
-<script src="/static/js/bootstrap.min.js"></script>
-
 <#if page_tab="index">
 <link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
 </#if>

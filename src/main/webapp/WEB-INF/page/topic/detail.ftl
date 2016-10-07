@@ -10,9 +10,13 @@
             <div class="title_text">
                 <p class="title_name">${topic.title!}</p>
                 <p class="public_date">${topic.formatDate(topic.in_time)}</p>
-                <p class="article_copyright">版权：<span><a href="/?tab=${section.tab!}">${section.name!}</a>发布 如需商业用途，请与<a
-                        href="/?tab=${section.tab!}">${section.name!}</a>联系，谢谢</span> <a href="">举报</a></p>
-                </br>
+                <#if topic.original?? >
+                    <p class="article_copyright">版权：<span>${topic.original!}发布 如需商业用途，请与
+                    ${topic.original!}联系，谢谢
+                    <#--</span> <a href="">举报</a></p>-->
+                    </br>
+                </#if>
+
                 <#if userinfo??>
                     <p class="article_copyright">
                     <#--<#if userinfo.id == authorinfo.id>-->
@@ -74,7 +78,7 @@
                     <span></span><a href="/collect/add?tid=${topic.id!}">加入收藏</a>
                 </#if>
             </div>
-            <div class="support_article pointer">480</div>
+            <#--<div class="support_article pointer">480</div>-->
 
 
         </div>
