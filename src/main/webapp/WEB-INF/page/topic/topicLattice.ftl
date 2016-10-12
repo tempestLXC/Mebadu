@@ -1,6 +1,6 @@
 <#include "../common/layout.ftl">
 <@html page_title="作品">
-<link href="/static/css/index_production.css" rel="stylesheet" type="text/css" />
+<link href="${static_resource_uri}/css/index_production.css" rel="stylesheet" type="text/css" />
 
 <div class="nav_bar_area clear">
     <div class="nav_bar_content">
@@ -112,7 +112,7 @@
 
 
 <!--广告 -->
-<div class="ad wrap"><img src="/static/image/add/07.jpg" /></div>
+<div class="ad wrap"><img src="${static_resource_uri}/image/add/07.jpg" /></div>
 <!--广告 -->
 
 <div class="clear"></div>

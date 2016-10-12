@@ -18,11 +18,11 @@
 
     <#if (currentPage == 1)>
     <a class="pr">
-        <img src="/static/image/left_jt.png" />
+        <img src="${static_resource_uri}/image/left_jt.png" />
     </a>
     <#else>
     <a href="${actionUrl}?p=#{currentPage - 1}${urlParas!}" class="pr">
-        <img src="/static/image/left_jt.png" />
+        <img src="${static_resource_uri}/image/left_jt.png" />
     </a>
     </#if>
 
@@ -36,11 +36,11 @@
 
     <#if (currentPage == totalPage)>
     <a class="pr">
-        <img src="/static/image/right_jt.png" />
+        <img src="${static_resource_uri}/image/right_jt.png" />
     </a>
     <#else>
     <a href="${actionUrl}?p=#{currentPage + 1}${urlParas!}" class="pr">
-        <img src="/static/image/right_jt.png" />
+        <img src="${static_resource_uri}/image/right_jt.png" />
     </a>
     </#if>
 <#--</ul>-->

@@ -5,14 +5,14 @@
 <div class="slide wrap">
   <div id="demo01" class="flexslider">
 	<ul class="slides" id="myButton">
-		<li><a href="#"><div class="img"><img src="/static/image/banner/01.jpg" /></div></a></li>
-		<li><a href="#"><div class="img"><img src="/static/image/banner/02.jpg" /></div></a></li>
+		<li><a href="#"><div class="img"><img src="${static_resource_uri}/image/banner/01.jpg" /></div></a></li>
+		<li><a href="#"><div class="img"><img src="${static_resource_uri}/image/banner/02.jpg" /></div></a></li>
 	</ul>
   </div>
 </div>
 <!--幻灯 -->
 
-<script type="text/javascript" src="/static/js/slider.js"></script>
+<script type="text/javascript" src="${static_resource_uri}/js/slider.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('#demo01').flexslider({
@@ -27,10 +27,10 @@ $(function(){
 <!--活动推荐 -->
 <div class="wrap activity">
    <ul>
-      <li><a href="#"><img src="/static/image/add/02.jpg" /></a></li>
-	  <li><a href="#"><img src="/static/image/add/03.jpg" /></a></li>
-	  <li><a href="#"><img src="/static/image/add/04.jpg" /></a></li>
-	  <li><a href="#"><img src="/static/image/add/05.jpg" /></a></li>
+      <li><a href="#"><img src="${static_resource_uri}/image/add/02.jpg" /></a></li>
+	  <li><a href="#"><img src="${static_resource_uri}/image/add/03.jpg" /></a></li>
+	  <li><a href="#"><img src="${static_resource_uri}/image/add/04.jpg" /></a></li>
+	  <li><a href="#"><img src="${static_resource_uri}/image/add/05.jpg" /></a></li>
    </ul>
 </div>
 <!--活动推荐 -->
@@ -71,7 +71,7 @@ $(function(){
 
 
 <!--广告 -->
-<div class="ad wrap"><img src="/static/image/add/07.jpg" /></div>
+<div class="ad wrap"><img src="${static_resource_uri}/image/add/07.jpg" /></div>
 <!--广告 -->
 
 
@@ -84,7 +84,7 @@ $(function(){
 	 <!--标题 -->
 	 <ul>
 	   <li>
-	      <span class="design_pic"><a href="#"><img src="/static/image/add/01.jpg" /></a></span>
+	      <span class="design_pic"><a href="#"><img src="${static_resource_uri}/image/add/01.jpg" /></a></span>
 		  <span class="design_name">
 		     <h3><a href="#">吴剑design</a></h3>
 			 <p>原 腾讯ecd 视觉设计师；京东高级视觉设计师</p>
@@ -92,16 +92,7 @@ $(function(){
 	   </li>
 	   
 	   <li>
-	      <span class="design_pic"><a href="#"><img src="/static/image/add/01.jpg" /></a></span>
-		  <span class="design_name">
-		     <h3><a href="#">吴剑design</a></h3>
-			 <p>原 腾讯ecd 视觉设计师；京东高级视觉设计师</p>
-		  </span>
-	   </li>
-	   
-	   
-	   <li>
-	      <span class="design_pic"><a href="#"><img src="/static/image/add/01.jpg" /></a></span>
+	      <span class="design_pic"><a href="#"><img src="${static_resource_uri}/image/add/01.jpg" /></a></span>
 		  <span class="design_name">
 		     <h3><a href="#">吴剑design</a></h3>
 			 <p>原 腾讯ecd 视觉设计师；京东高级视觉设计师</p>
@@ -110,7 +101,7 @@ $(function(){
 	   
 	   
 	   <li>
-	      <span class="design_pic"><a href="#"><img src="/static/image/add/01.jpg" /></a></span>
+	      <span class="design_pic"><a href="#"><img src="${static_resource_uri}/image/add/01.jpg" /></a></span>
 		  <span class="design_name">
 		     <h3><a href="#">吴剑design</a></h3>
 			 <p>原 腾讯ecd 视觉设计师；京东高级视觉设计师</p>
@@ -119,7 +110,7 @@ $(function(){
 	   
 	   
 	   <li>
-	      <span class="design_pic"><a href="#"><img src="/static/image/add/01.jpg" /></a></span>
+	      <span class="design_pic"><a href="#"><img src="${static_resource_uri}/image/add/01.jpg" /></a></span>
 		  <span class="design_name">
 		     <h3><a href="#">吴剑design</a></h3>
 			 <p>原 腾讯ecd 视觉设计师；京东高级视觉设计师</p>
@@ -128,7 +119,16 @@ $(function(){
 	   
 	   
 	   <li>
-	      <span class="design_pic"><a href="#"><img src="/static/image/add/01.jpg" /></a></span>
+	      <span class="design_pic"><a href="#"><img src="${static_resource_uri}/image/add/01.jpg" /></a></span>
+		  <span class="design_name">
+		     <h3><a href="#">吴剑design</a></h3>
+			 <p>原 腾讯ecd 视觉设计师；京东高级视觉设计师</p>
+		  </span>
+	   </li>
+	   
+	   
+	   <li>
+	      <span class="design_pic"><a href="#"><img src="${static_resource_uri}/image/add/01.jpg" /></a></span>
 		  <span class="design_name">
 		     <h3><a href="#">吴剑design</a></h3>
 			 <p>原 腾讯ecd 视觉设计师；京东高级视觉设计师</p>
@@ -136,7 +136,7 @@ $(function(){
 	   </li>
 	   
 	   <li>
-	      <span class="design_pic"><a href="#"><img src="/static/image/add/01.jpg" /></a></span>
+	      <span class="design_pic"><a href="#"><img src="${static_resource_uri}/image/add/01.jpg" /></a></span>
 		  <span class="design_name">
 		     <h3><a href="#">吴剑design</a></h3>
 			 <p>原 腾讯ecd 视觉设计师；京东高级视觉设计师</p>
@@ -144,7 +144,7 @@ $(function(){
 	   </li>
 	   
 	   <li>
-	      <span class="design_pic"><a href="#"><img src="/static/image/add/01.jpg" /></a></span>
+	      <span class="design_pic"><a href="#"><img src="${static_resource_uri}/image/add/01.jpg" /></a></span>
 		  <span class="design_name">
 		     <h3><a href="#">吴剑design</a></h3>
 			 <p>原 腾讯ecd 视觉设计师；京东高级视觉设计师</p>

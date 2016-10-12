@@ -1,6 +1,6 @@
 <#include "../common/layout.ftl">
 <@html page_title="${topic.title}">
-<link href="/static/css/information_detial.css" rel="stylesheet" type="text/css" xmlns="http://www.w3.org/1999/html"/>
+<link href="${static_resource_uri}/css/information_detial.css" rel="stylesheet" type="text/css" xmlns="http://www.w3.org/1999/html"/>
 <!--内容区域-->
 <div class="content">
     <!--做不内容区域-->
@@ -146,19 +146,19 @@
 
 
 <!--广告 -->
-<div class="ad wrap"><img src="/static/image/add/07.jpg"/></div>
+<div class="ad wrap"><img src="${static_resource_uri}/image/add/07.jpg"/></div>
 <!--广告 -->
 
 </@html>
-<link rel="stylesheet" href="/static/css/jquery.atwho.min.css"/>
-<link rel="stylesheet" href="/static/libs/editor/editor.css"/>
-<script type="text/javascript" src="/static/js/jquery.atwho.min.js"></script>
-<script type="text/javascript" src="/static/js/lodash.min.js"></script>
-<script type="text/javascript" src="/static/js/highlight.min.js"></script>
-<script type="text/javascript" src="/static/libs/webuploader/webuploader.withoutimage.js"></script>
-<script type="text/javascript" src="/static/libs/markdownit.js"></script>
-<script type="text/javascript" src="/static/libs/editor/editor.js"></script>
-<script type="text/javascript" src="/static/libs/editor/ext.js"></script>
+<link rel="stylesheet" href="${static_resource_uri}/css/jquery.atwho.min.css"/>
+<link rel="stylesheet" href="${static_resource_uri}/libs/editor/editor.css"/>
+<script type="text/javascript" src="${static_resource_uri}/js/jquery.atwho.min.js"></script>
+<script type="text/javascript" src="${static_resource_uri}/js/lodash.min.js"></script>
+<script type="text/javascript" src="${static_resource_uri}/js/highlight.min.js"></script>
+<script type="text/javascript" src="${static_resource_uri}/libs/webuploader/webuploader.withoutimage.js"></script>
+<script type="text/javascript" src="${static_resource_uri}/libs/markdownit.js"></script>
+<script type="text/javascript" src="${static_resource_uri}/libs/editor/editor.js"></script>
+<script type="text/javascript" src="${static_resource_uri}/libs/editor/ext.js"></script>
 <script>
 
     $('pre code').each(function(i, block) {
@@ -224,4 +224,4 @@
         });
     });
 </script>
-<script src="/static/js/information_detail.js"></script>
+<script src="${static_resource_uri}/js/information_detail.js"></script>

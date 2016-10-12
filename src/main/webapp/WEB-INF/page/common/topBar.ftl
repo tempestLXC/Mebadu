@@ -2,7 +2,7 @@
 <div class="header">
     <div class="wrap">
         <!--LOGO -->
-        <div class="logo"><img src="/static/image/logo.png"/></div>
+        <div class="logo"><img src="${static_resource_uri}/image/logo.png"/></div>
         <!--LOGO -->
 
         <!--导航 -->

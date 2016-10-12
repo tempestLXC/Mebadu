@@ -1,7 +1,7 @@
 <#include "../common/layout.ftl">
 <@html page_title="发布话题">
 
-<link href="/static/css/upload_file.css" rel="stylesheet" type="text/css"/>
+<link href="${static_resource_uri}/css/upload_file.css" rel="stylesheet" type="text/css"/>
 <div class="content">
     <div class="upload_title">
         <div id="production" class="upload_title_detail">
@@ -67,14 +67,14 @@
 </div>
 
 </@html>
-<link rel="stylesheet" href="/static/css/bootstrap.css"/>
-<link rel="stylesheet" href="/static/libs/editor/editor.css"/>
-<script type="text/javascript" src="/static/libs/webuploader/webuploader.withoutimage.js"></script>
-<script type="text/javascript" src="/static/libs/markdownit.js"></script>
-<script type="text/javascript" src="/static/libs/editor/editor.js"></script>
-<script type="text/javascript" src="/static/libs/editor/ext.js"></script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/upload_file.js"></script>
+<link rel="stylesheet" href="${static_resource_uri}/css/bootstrap.css"/>
+<link rel="stylesheet" href="${static_resource_uri}/libs/editor/editor.css"/>
+<script type="text/javascript" src="${static_resource_uri}/libs/webuploader/webuploader.withoutimage.js"></script>
+<script type="text/javascript" src="${static_resource_uri}/libs/markdownit.js"></script>
+<script type="text/javascript" src="${static_resource_uri}/libs/editor/editor.js"></script>
+<script type="text/javascript" src="${static_resource_uri}/libs/editor/ext.js"></script>
+<script src="${static_resource_uri}/js/bootstrap.min.js"></script>
+<script src="${static_resource_uri}/js/upload_file.js"></script>
 
 <script>
     $(document).ready(function () {

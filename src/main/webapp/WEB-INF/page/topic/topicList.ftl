@@ -1,6 +1,6 @@
 <#include "../common/layout.ftl">
 <@html page_title="作品">
-<link href="/static/css/index_article.css" rel="stylesheet" type="text/css" />
+<link href="${static_resource_uri}/css/index_article.css" rel="stylesheet" type="text/css" />
 
 <div class="nav_bar_area clear">
     <div class="nav_bar_content">
@@ -120,7 +120,7 @@
             <!--单元模块start-->
             <div class="hot_author_detail">
                 <a href="/user/${user.nickname}">
-                <img src="/static/image/hot_${user_index+1}.jpg" alt="" class="hot_rank" />
+                <img src="${static_resource_uri}/image/hot_${user_index+1}.jpg" alt="" class="hot_rank" />
                 <img src="${user.avatar}" alt="" class="hot_author_header" />
                 <div class="hot_author_introduce">
                     <p class="hot_author_name">${user.nickname}</p>
@@ -146,7 +146,7 @@
 
 
 <!--广告 -->
-<div class="ad wrap"><img src="/static/image/add/07.jpg" /></div>
+<div class="ad wrap"><img src="${static_resource_uri}/image/add/07.jpg" /></div>
 <!--广告 -->
 
 <div class="clear"></div>

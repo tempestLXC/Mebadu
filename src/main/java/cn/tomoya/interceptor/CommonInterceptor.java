@@ -57,6 +57,7 @@ public class CommonInterceptor implements Interceptor {
         controller.setAttr("solrStatus", PropKit.getBoolean("solr.status")?"true":"false");
         controller.setAttr("shareDomain", PropKit.get("share.domain"));
         controller.setAttr("siteTitle", PropKit.get("siteTitle"));
+        controller.setAttr("static_resource_uri", PropKit.get("static_resource_uri"));
         controller.setAttr("beianName", PropKit.get("beianName"));
         controller.setAttr("tongjiJs", PropKit.get("tongjiJs"));
         inv.invoke();

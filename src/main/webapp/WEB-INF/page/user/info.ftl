@@ -178,7 +178,7 @@
                     <#--<!--单元模块start&ndash;&gt;-->
                     <#--<li>-->
                         <#--<a href="personal_production.html">-->
-                            <#--<span class="index_pic"><img src="/static/image/add/06.jpg" /></span>-->
+                            <#--<span class="index_pic"><img src="${static_resource_uri}/image/add/06.jpg" /></span>-->
                         <#--</a>-->
 				  <#--<span class="index_title">-->
 				    <#--<a href="#">仓惶之狗/最近一有时间就画些...</a>-->
@@ -199,7 +199,7 @@
                     <#--<!--单元模块end&ndash;&gt;-->
                     <#--<li>-->
                         <#--<a href="personal_production.html">-->
-                            <#--<span class="index_pic"><img src="/static/image/add/06.jpg" /></span>-->
+                            <#--<span class="index_pic"><img src="${static_resource_uri}/image/add/06.jpg" /></span>-->
                         <#--</a>-->
 				  <#--<span class="index_title">-->
 				    <#--<a href="#">仓惶之狗/最近一有时间就画些...</a>-->
@@ -219,7 +219,7 @@
                     <#--</li>-->
                     <#--<li>-->
                         <#--<a href="personal_production.html">-->
-                            <#--<span class="index_pic"><img src="/static/image/add/06.jpg" /></span>-->
+                            <#--<span class="index_pic"><img src="${static_resource_uri}/image/add/06.jpg" /></span>-->
                         <#--</a>-->
 				  <#--<span class="index_title">-->
 				    <#--<a href="#">仓惶之狗/最近一有时间就画些...</a>-->
@@ -253,5 +253,5 @@
         });
     });
 </script>
-<script src="/static/js/personal_production.js"></script>
+<script src="${static_resource_uri}/js/personal_production.js"></script>
 </@html>
